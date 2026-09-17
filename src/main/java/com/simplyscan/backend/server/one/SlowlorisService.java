@@ -10,12 +10,8 @@ import org.springframework.stereotype.Service;
 //Serivce class for Slowloris
 @Service
 public class SlowlorisService {
-    private final RestClientGeo restClientGeo;
-    private  SlowlorisResponseDTO responseDTO;
 
-    public SlowlorisService(RestClientGeo restClientGeo){
-        this.restClientGeo = restClientGeo;
-        
+    public SlowlorisService(){
     }
 
     //Method to conduct the slowloris http stress test

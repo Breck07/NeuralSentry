@@ -18,9 +18,7 @@ public class NmapController {
     @PostMapping("/nmap")
 
     //Method for runnning nmap logic
-    public String runNmap(@RequestBody String ip){
-        NmapRequestDto dto = new NmapRequestDto();
-        dto.setIp(ip);
-        return scanner.runScan(dto).toString();
+    public NmapResponse runNmap(@RequestBody NmapRequestDTO requestDTO){
+        return scanner.runScan(requestDTO);
     }
 }

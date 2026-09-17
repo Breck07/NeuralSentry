@@ -15,15 +15,15 @@ public class NmapScanService {
     }
 
     //Method to run nmap process/scan
-    public List<String> runScan(NmapRequestDto nmapRequestDto){
-        String ip = nmapRequestDto.getIp();
+    public NmapResponse runScan(NmapRequestDTO nmapRequestDto){
+        String ip = nmapRequestDto.getHost();
+
         //Initialize list for results and commands
         List<String> results = new ArrayList<>();
         List<String> commands = new ArrayList<>();
 
         //Add commands to command list
         commands.add("nmap");
-        commands.add("-F");
         commands.add(ip);
 
         ProcessBuilder pb = new ProcessBuilder(commands);
@@ -44,7 +44,13 @@ public class NmapScanService {
             results.add("Error with nmap scan!");
         }
 
-        return results; //Return results
+        String response = results.toString(); 
+        
+        //Return results
+        NmapResponse responseDTO = new NmapResponse();
+        responseDTO.setResponse(response);
+
+        return responseDTO;
     }
 
 }

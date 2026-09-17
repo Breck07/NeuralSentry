@@ -17,7 +17,7 @@ public class GeoController {
 
     //Map to /geo endpoint
     @PostMapping("/geo")
-    //Methof to store main logic for sending request and response
+    //Method to store main logic for sending request and response
     public IpGeoResponseDTO geoMethod(@RequestBody IpGeoRequestDTO requestDTO) {
         IpGeoResponseDTO responseDTO = geoService.geoScan(requestDTO);
         
